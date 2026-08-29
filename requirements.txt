@@ -1,0 +1,10 @@
+langgraph>=1.0,<2.0
+pydantic>=2.0,<3.0
+PyYAML>=6.0
+rich>=13.0
+
+# Optional: only needed if WAYFINDER_LLM_PROVIDER=anthropic
+# anthropic>=0.40
+
+# Dev / test only
+pytest>=8.0

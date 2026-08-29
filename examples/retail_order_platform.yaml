@@ -1,0 +1,31 @@
+# Example SystemProfile: a smaller, lower-risk retail order-management system.
+# Included alongside the trading-platform example to show the advisor scaling
+# its recommendation to the system, not just its industry label.
+
+name: "Order Management Service"
+description: >
+  A .NET order-management application for an e-commerce retailer, already
+  containerized but still running as a single deployable unit.
+industry: "retail"
+
+current_stack:
+  languages: ["C#"]
+  frameworks: ["ASP.NET MVC"]
+  database: "PostgreSQL 14"
+  deployment: "on_prem_kubernetes"
+  integration: ["REST", "Webhooks"]
+
+scale:
+  daily_transactions: 80000
+  peak_tps: 150
+  users: 40
+
+constraints:
+  data_residency: "US"
+  regulatory: ["PCI DSS"]
+  uptime_sla: "99.5%"
+  change_window: "any weekday evening"
+
+business_drivers:
+  - "scale independently from the rest of the platform during peak sales events"
+  - "adopt managed cloud database to remove DBA on-call burden"

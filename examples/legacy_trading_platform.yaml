@@ -1,0 +1,31 @@
+# Example SystemProfile: a monolithic core trading/settlement system.
+# This is illustrative -- not a description of any real system or employer.
+
+name: "Core Trading Ledger"
+description: >
+  Monolithic Java/EJB application handling trade booking, matching, and
+  settlement for a Financial Markets business line.
+industry: "banking_financial_services"
+
+current_stack:
+  languages: ["Java", "PL/SQL"]
+  frameworks: ["EJB 2.1", "Struts"]
+  database: "Oracle 11g (on-prem)"
+  deployment: "on_prem_datacenter"
+  integration: ["MQ Series", "SOAP", "FTP", "CORBA"]
+
+scale:
+  daily_transactions: 4500000
+  peak_tps: 1200
+  users: 800
+
+constraints:
+  data_residency: "EU + India"
+  regulatory: ["MiFID II", "PCI DSS", "GDPR"]
+  uptime_sla: "99.95%"
+  change_window: "monthly, weekends only"
+
+business_drivers:
+  - "reduce time-to-market for new products from 6 months to 6 weeks"
+  - "cut infrastructure cost by 30%"
+  - "enable real-time risk analytics"
