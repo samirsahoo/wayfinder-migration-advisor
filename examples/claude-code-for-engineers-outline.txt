@@ -1,0 +1,219 @@
+CLAUDE CODE FOR ENGINEERS
+Presentation plan, outline and take-aways
+Presenter: Samir Kumar Sahoo
+Deck: presentations/claude-code-for-engineers.pptx (34 slides)
+
+======================================================================
+1. PURPOSE
+======================================================================
+
+Everyone in IT Engineering already has Claude Code. Most people use it
+like a smarter autocomplete: one prompt, one answer, copy and paste.
+
+This session shows how to use it as an engineering system instead,
+safely and effectively, across everyday work: development, testing,
+debugging, code review, architecture and analysis.
+
+The core message:
+  You don't get better results by memorising more commands. You get them
+  by knowing which problem you are solving, and choosing the right
+  control: focused context, clear checks, the right model, and real
+  guardrails.
+
+======================================================================
+2. FORMAT AND AUDIENCE
+======================================================================
+
+Length:     60 minutes, including four live demos and Q&A
+Audience:   Developers, testers, tech leads and architects in IT
+            Engineering. No prior Claude Code expertise is assumed.
+Style:      Live talk. Demos are spread through the session, not left
+            to the end. Questions at the end, but interruptions are
+            welcome if something is unclear.
+Handouts:   The decision guide, model cheat sheet and take-away
+            checklist (slides 31-33) are designed to be printed.
+
+======================================================================
+3. OUTLINE AND TIMING
+======================================================================
+
+OPENING (0:00-2:00)
+  1. Title: Claude Code for Engineers
+  2. Agenda for the next 60 minutes
+
+SECTION 1 - HOW CLAUDE CODE WORKS (2:00-10:00)
+  Goal: give everyone the same simple mental model.
+  3. Section divider
+  4. What senior engineers do differently
+     - An agent, not a snippet generator
+     - Context is managed; two layers of safety; plan is a quality
+       gate; a second pair of eyes
+  5. Every task runs the same loop: gather context -> act -> verify
+  6. Four ways to steer a conversation: /clear, /compact, /branch,
+     /fork (plus /btw for side questions)
+  7. Choosing model and effort in 10 seconds
+     - Haiku, Sonnet, Opus, Fable; opusplan; the effort dial
+
+SECTION 2 - 10 HABITS FOR BETTER RESULTS (10:00-22:00)
+  Goal: practical habits anyone can apply tomorrow.
+  8.  Section divider
+  9.  The 10 habits at a glance
+  10. Point Claude at the right place - don't paste the world
+  11. Plan first, then build, then check
+  12. Keep CLAUDE.md short - it loads every session
+  13. DEMO 1 - Understand an existing project
+      /init, plan mode, one focused question, /context, /clear
+
+SECTION 3 - ENGINEERING CONTROLS (22:00-30:00)
+  Goal: move from "asking nicely" to controls that are enforced and
+  repeatable.
+  14. Section divider
+  15. Where each instruction should live
+      CLAUDE.md, skill, hook, permissions, prompt, MCP, sub-agent,
+      worktree
+  16. Permission modes and allow / ask / deny rules
+  17. Skills: write the procedure once (including live git-diff skills)
+  18. Hooks: guarantees, not reminders (auto-format, block dangerous
+      commands)
+  19. Parallel work: sub-agents, worktrees, background sessions, /batch
+
+SECTION 4 - DAY-TO-DAY IT PLAYBOOK (30:00-50:00)
+  Goal: show the habits and controls on real engineering tasks.
+  20. Section divider
+  21. Claude across the delivery lifecycle
+      Requirements, architecture, build, test, review, operate
+  22. Debugging: reproduce first, then fix
+  23. DEMO 2 - Debug with a failing test
+  24. Testing and code review
+  25. DEMO 3 - Review a change before the pull request
+      /code-review, /security-review
+  26. Architecture: review existing, design new
+  27. DEMO 4 - Architecture review and diagram (ADR + Mermaid/Archify)
+  28. A senior engineer's feature loop
+      Set up -> plan -> build -> review -> maintain; grow autonomy
+      gradually
+
+SECTION 5 - GUARDRAILS FOR A BANK (50:00-55:00)
+  Goal: make clear what never changes, whatever the tool.
+  29. Guardrails: what we never compromise on
+      No secrets or customer data, untrusted input, no unattended
+      production, same review for AI code, a human owns the merge
+  30. Six anti-patterns that hurt results
+
+CLOSE (55:00-60:00)
+  31. Quick decision guide: name the problem first
+  32. Cheat sheet: task, model, effort
+  33. Take-away checklist (left on screen during Q&A)
+  34. Questions?
+
+======================================================================
+4. LIVE DEMOS
+======================================================================
+
+Demo 1 - Understand an existing project (16:00-22:00)
+  Repo: a non-sensitive internal service or sample Spring Boot service.
+  Shows: /init to draft CLAUDE.md and trim it live; plan mode with
+  Sonnet; one focused onboarding question; /context; /clear.
+
+Demo 2 - Debug with a failing test (33:00-37:00)
+  Setup: a seeded bug (e.g. date-boundary or rounding bug in an
+  interest or fee calculation).
+  Shows: piping the build log in; a specific prompt with a file
+  pointer; failing test first, then the fix; asking for evidence;
+  Esc / Esc Esc to stop drift; /diff.
+
+Demo 3 - Review a change before the pull request (39:00-42:00)
+  Setup: the Demo 2 fix, or a branch with a planted issue (missing null
+  check, logged account number).
+  Shows: /clear for a fresh context; /code-review; /security-review;
+  fixing correctness findings only.
+
+Demo 4 - Architecture review and diagram (44:00-48:00)
+  Shows: Opus at high effort for high-stakes work; plan-mode
+  architecture review ("what fails first at 10x load?"); a data-flow
+  diagram; drafting an ADR from our template.
+  Can be shortened if running late.
+
+======================================================================
+5. BENEFITS AND KEY TAKE-AWAYS
+======================================================================
+
+What attendees will be able to do after the session:
+
+  1. Work in focused sessions
+     One task per session; /clear between tasks; /compact when one task
+     runs long. Result: sharper, more reliable answers.
+
+  2. Write prompts that work the first time
+     Point with @files, state the goal and why, define "done", say what
+     not to touch.
+
+  3. Plan before building
+     Use plan mode for anything non-trivial. Fixing a plan takes one
+     turn; fixing wrong code takes many, plus review time.
+
+  4. Give Claude a check, and ask for evidence
+     Tests, build and lint are the pass/fail signal. Ask for the command
+     run and its output, not just "done".
+
+  5. Choose the right model and effort
+     Sonnet for routine work, Opus where it counts, higher effort only
+     when mistakes are costly.
+
+  6. Put each instruction in the right place
+     Advice in CLAUDE.md and skills; guarantees in hooks and
+     permissions. Short CLAUDE.md (under 200 lines).
+
+  7. Use Claude across the whole lifecycle
+     Not only coding: requirements gaps, architecture options and ADRs,
+     tests from acceptance criteria, independent code and security
+     review, log triage.
+
+  8. Scale safely
+     Sub-agents for focused investigations, worktrees for parallel
+     edits, /batch only for work that truly splits.
+
+  9. Stay inside bank guardrails
+     No secrets or customer data in prompts, deny rules for sensitive
+     files, untrusted input treated as data, no unattended production
+     changes, and a human always owns the merge.
+
+Benefits for the team and the organisation:
+
+  - Higher quality: plans, tests and independent reviews catch problems
+    before they reach a pull request.
+  - Faster delivery: less back-and-forth, fewer rewrites, repeatable
+    workflows captured as skills.
+  - Consistency: shared CLAUDE.md, skills and hooks mean everyone works
+    to the same standards.
+  - Safety and compliance: enforced controls (permissions, hooks,
+    managed settings) instead of reminders; humans stay accountable.
+  - Shared language: one mental model and one decision guide for the
+    whole team.
+
+======================================================================
+6. PRESENTER PREPARATION CHECKLIST
+======================================================================
+
+  [ ] Check commands live in the current Claude Code version. Some are
+      version-dependent: /fork, /btw, /background, /batch,
+      claude agents. Type / to see what is available.
+  [ ] Prepare a non-sensitive demo repository (no customer data, no
+      secrets).
+  [ ] Seed the Demo 2 bug and the Demo 3 planted issue in advance.
+  [ ] Have an ADR template ready at docs/adr/template.md for Demo 4.
+  [ ] Confirm deny rules for .env and secrets are set in the demo
+      environment.
+  [ ] Print the decision guide, cheat sheet and checklist
+      (slides 31-33) as handouts.
+  [ ] Plan the time: 34 slides in 60 minutes is tight. If running late,
+      shorten Demo 4 and treat slides 31-32 as handouts.
+
+======================================================================
+7. SOURCES
+======================================================================
+
+  - Anthropic Claude Code documentation and best-practice guidance
+  - "Claude Code Practical Guide" (field guide)
+  - "How Senior Engineers Actually Build with AI" (course summary)
+  - Our own team usage and experience
